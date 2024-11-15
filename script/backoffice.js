@@ -100,7 +100,7 @@ function addProduct() {
       price: document.querySelector('#price').value,
     }
 
-    console.log('Prodotto che hai appena inserito:', newProduct)
+    console.log('Prodotto inserito:', newProduct)
     saveProduct(newProduct)
   })
 }

@@ -10,10 +10,18 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      .spinner-border {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+    </style>
   </head>
   <body class="bg-light-subtle">
     <header>
-      <!-- NAVBAR  -->
+      <!-- NAVBAR -->
       <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand text-light" href="./index.html"
@@ -49,7 +57,16 @@
           </div>
         </div>
       </nav>
-      <h1 class="text-center mt-5">Computer Center</h1>
+      <h1 class="text-center mt-5">
+        Computer Center
+        <!-- Indicatore di caricamento -->
+        <span
+          id="loading-indicator"
+          class="spinner-border text-light"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </h1>
       <h3 class="text-center">La tecnologia a portata di click!</h3>
     </header>
     <main class="flex-grow-1">

@@ -46,3 +46,7 @@ const createProducts = (results) => {
     list.appendChild(newCol)
   })
 }
+
+window.onload = function () {
+  document.getElementById('loading-indicator').style.display = 'none'
+}

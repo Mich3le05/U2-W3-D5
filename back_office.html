@@ -46,17 +46,6 @@
                 >
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
@@ -127,14 +116,10 @@
                 />
               </div>
               <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">
+                  ADD PRODUCT
+                </button>
                 <div>
-                  <button
-                    type="button"
-                    onclick="addProduct()"
-                    class="btn btn-success"
-                  >
-                    ADD PRODUCT
-                  </button>
                   <button
                     type="button"
                     onclick="resetForm()"
@@ -142,10 +127,10 @@
                   >
                     RESET
                   </button>
+                  <button type="button" id="delete" class="btn btn-danger">
+                    DELETE
+                  </button>
                 </div>
-                <button type="button" id="delete" class="btn btn-danger">
-                  DELETE
-                </button>
               </div>
               <div id="backoffice-list" class="row">
                 <!-- Prodotti caricati dinamicamente -->

@@ -4,49 +4,6 @@ const token =
 
 const productID = new URLSearchParams(window.location.search).get('productID')
 
-// const pDetails = () => {
-//   fetch(URL + productID, {
-//     headers: {
-//       Authorization: token,
-//     },
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json()
-//       } else {
-//         throw new Error('Error')
-//       }
-//     })
-//     .then((product) => {
-//       console.log('prodotto:', product)
-
-//       const productImageReference = document.querySelector('#productImage')
-//       const productImage = document.createElement('img')
-//       productImage.setAttribute('src', product.imageUrl)
-//       productImage.classList.add('w-100')
-//       productImageReference.appendChild(productImage)
-
-//       const productInfoReference = document.querySelector('#productInfo')
-//       productInfoReference.innerHTML = `
-//               <h2>${product.brand} - ${product.name}</h2>
-//               <p>${product.description}</p>
-//               <p>Price: €${product.price}</p>
-//               <p>Image Url: <br> ${product.imageUrl}</p>
-//               <p>SERVER GENERATED: </p>
-//               <ul>
-//                   <li>createdAt: ${product.createdAt}</li>
-//                   <li>updatedAt: ${product.updatedAt}</li>
-//                   <li>userId: ${product.userId}</li>
-//                   <li>_v: ${product.__v}</li>
-//                   <li>_id: ${product._id}</li>
-//               </ul>`
-//     })
-//     .catch((error) => {
-//       console.log('Errore:', error)
-//     })
-// }
-// console.log('Product ID:', productID)
-
 fetch(URL + '/' + productID, {
   headers: {
     Authorization: token,

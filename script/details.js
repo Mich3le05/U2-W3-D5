@@ -4,7 +4,7 @@ const token =
 
 const productID = new URLSearchParams(window.location.search).get('productID')
 
-fetch(URL + '/' + productID, {
+fetch(URL + productID, {
   headers: {
     Authorization: token,
   },
@@ -17,7 +17,6 @@ fetch(URL + '/' + productID, {
     }
   })
   .then((prodotto) => {
-    console.log('prodotto', prodotto)
     const col = document.getElementById('card-container')
     col.innerHTML = `
             <h2>${prodotto.brand} - ${prodotto.name}</h2>
@@ -25,40 +24,37 @@ fetch(URL + '/' + productID, {
             <div class="card-body">
                 <h5 class="card-title">${prodotto.brand} - ${prodotto.name}</h5>
                 <p class="card-text">${prodotto.description}</p>
-                <p class="card-text">€${prodotto.price}€</p>
+                <p class="card-text">€${prodotto.price}</p>
                 <ul>
-                <li>createdAt: ${prodotto.createdAt}</li>
-                <li>updatedAt: ${prodotto.updatedAt}</li>
-                <li>userId: ${prodotto.userId}</li>
-                <li>_v: ${prodotto.__v}</li>
-                <li>_id: ${prodotto._id}</li>
-            </ul>
-                <a class="btn btn-warning" href="./back_office.html?concertId=${prodotto.userId}">MODIFICA</a>
-                <button class="btn btn-danger" onclick="deleteConcert()">ELIMINA</button>
+                  <li>createdAt: ${prodotto.createdAt}</li>
+                  <li>updatedAt: ${prodotto.updatedAt}</li>
+                  <li>userId: ${prodotto.userId}</li>
+                  <li>_v: ${prodotto.__v}</li>
+                  <li>_id: ${prodotto._id}</li>
+                </ul>
+                <a class="btn btn-warning" href="./back_office.html?productID=${prodotto._id}">MODIFICA</a>
+                <button class="btn btn-danger" onclick="deleteProduct()">ELIMINA</button>
             </div>
-        
-    `
+        `
   })
   .catch((error) => {
     console.log('ERROR', error)
   })
 
-const deleteConcert = function () {
-  console.log('Elimino il prodotto')
+const deleteProduct = () => {
   fetch(URL + productID, {
-    headers: {
-      Authorization: token,
-    },
+    method: 'DELETE',
+    headers: { Authorization: token },
   })
     .then((response) => {
       if (response.ok) {
-        alert('Prodotto eliminato!')
+        alert('Prodotto eliminato correttamente')
         window.location.assign('./index.html')
       } else {
-        throw new Error('Errore')
+        alert("Problema nell'eliminazione del prodotto")
       }
     })
     .catch((error) => {
-      console.log('error', error)
+      console.log(error)
     })
 }

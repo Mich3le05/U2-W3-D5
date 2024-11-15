@@ -13,7 +13,7 @@ fetch(URL + '/' + productID, {
     if (response.ok) {
       return response.json()
     } else {
-      throw new Error("Errore nel recupero dei dettagli dell'evento")
+      throw new Error('Errore')
     }
   })
   .then((prodotto) => {
@@ -44,7 +44,7 @@ fetch(URL + '/' + productID, {
   })
 
 const deleteConcert = function () {
-  console.log('PROVO A ELIMINARE IL CONCERTO')
+  console.log('Elimino il prodotto')
   fetch(URL + productID, {
     headers: {
       Authorization: token,
